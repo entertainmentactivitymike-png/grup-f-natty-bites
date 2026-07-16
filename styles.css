@@ -470,6 +470,25 @@ ul { list-style: none; }
 .package-card--hero .package-card__sub { color: var(--beige); }
 .package-card__desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.75; flex: 1; }
 .package-card--hero .package-card__desc { color: rgba(255,255,255,0.78); }
+
+/* Price block */
+.package-card__price-block {
+  display: flex; flex-direction: column; gap: 4px;
+  padding: 14px 16px; border-radius: 10px;
+  background: rgba(107,122,78,0.07);
+}
+.package-card--hero .package-card__price-block { background: rgba(255,255,255,0.1); }
+.package-card__price-row { display: flex; align-items: baseline; gap: 6px; }
+.package-card__price-main {
+  font-family: var(--font-display); font-size: 2rem; line-height: 1;
+  color: var(--charcoal); letter-spacing: 0.01em;
+}
+.package-card--hero .package-card__price-main { color: var(--white); }
+.package-card__price-unit { font-size: 0.85rem; font-weight: 600; color: var(--text-muted); }
+.package-card--hero .package-card__price-unit { color: rgba(255,255,255,0.65); }
+.package-card__price-weekly { font-size: 0.75rem; color: var(--text-muted); font-weight: 500; }
+.package-card--hero .package-card__price-weekly { color: rgba(255,255,255,0.55); }
+
 .package-card__macros {
   display: flex; gap: 16px; padding: 16px;
   background: rgba(107,122,78,0.07); border-radius: 10px;
@@ -482,6 +501,13 @@ ul { list-style: none; }
 .package-card--hero .macro__lbl { color: rgba(255,255,255,0.6); }
 .packages__note { text-align: center; margin-top: 40px; font-size: 0.95rem; color: var(--text-muted); }
 .packages__note a { color: var(--olive-dark); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+
+/* ---- 1024px: tablet landscape ---- */
+@media (max-width: 1024px) {
+  .packages__grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+  .package-card--hero { transform: none; }
+  .package-card--hero:hover { transform: translateY(-6px); }
+}
 
 /* ---- WAITLIST ---- */
 .waitlist {
@@ -625,9 +651,6 @@ ul { list-style: none; }
 /* ---- 1024px: tablet landscape ---- */
 @media (max-width: 1024px) {
   .why__grid { grid-template-columns: repeat(2, 1fr); }
-  .packages__grid { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; }
-  .package-card--hero { transform: none; }
-  .package-card--hero:hover { transform: translateY(-6px); }
 }
 
 /* ---- 900px: tablet portrait ---- */
