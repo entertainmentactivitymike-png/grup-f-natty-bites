@@ -199,6 +199,108 @@ ul { list-style: none; }
 .why__card--featured h3 { color: var(--white); }
 .why__card--featured p { color: var(--white); font-weight: 500; }
 
+/* ---- HOW TO ORDER ---- */
+.howto { padding: 100px 0; background: var(--offwhite); }
+.howto__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto;
+  gap: 24px;
+}
+
+/* Steps 4 & 5 span to form the bottom row of 2 */
+.howto__grid > article:nth-child(4) { grid-column: span 1; }
+.howto__grid > article:nth-child(5) { grid-column: span 2; }
+
+.howto__card {
+  padding: 32px 28px;
+  border-radius: var(--radius-lg);
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.howto__card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+
+/* Step badge */
+.howto__step-badge {
+  display: inline-block; width: fit-content;
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em;
+  padding: 4px 12px; border-radius: 20px;
+  background: rgba(107,122,78,0.15); color: var(--olive-dark);
+}
+.howto__step-badge--featured {
+  background: rgba(107,122,78,0.15); color: var(--olive-dark);
+}
+.howto__step-badge--hero {
+  background: var(--olive-dark); color: var(--white);
+}
+
+/* Titles */
+.howto__title {
+  font-family: var(--font-display);
+  font-size: 1.35rem; font-weight: 700;
+  color: var(--charcoal); line-height: 1.3;
+}
+.howto__title--hero { color: var(--olive-dark); }
+
+/* Description */
+.howto__desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.7; }
+.howto__desc--hero { color: var(--text-muted); }
+
+/* Divider */
+.howto__divider { border: none; border-top: 1px solid var(--border); margin: 4px 0; }
+.howto__divider--hero { border-color: rgba(60,68,46,0.2); }
+
+/* Checklist */
+.howto__checklist { display: flex; flex-direction: column; gap: 10px; }
+.howto__checklist li {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 0.88rem; font-weight: 600; color: var(--charcoal);
+}
+.howto__checklist li svg { color: var(--olive); flex-shrink: 0; }
+.howto__checklist--hero li { color: var(--olive-dark); font-size: 0.92rem; }
+.howto__checklist--hero li svg { color: var(--olive-dark); }
+
+/* Goal table (Step 2) */
+.howto__goal-table { display: flex; flex-direction: column; gap: 8px; }
+.howto__goal-table li {
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 0.88rem; padding: 2px 0;
+}
+.howto__goal-table li span:first-child { color: var(--text-muted); font-weight: 500; }
+.howto__goal-table li span:last-child { color: var(--charcoal); font-weight: 700; }
+
+/* Featured card (Step 3) — olive border highlight */
+.howto__card--featured {
+  border-color: var(--olive);
+  box-shadow: 0 0 0 1px var(--olive);
+}
+
+/* Hero card (Step 5) — light green tint */
+.howto__card--hero {
+  background: #eef4e8;
+  border-color: var(--olive);
+}
+.howto__card--hero:hover { box-shadow: var(--shadow-md); }
+
+/* CTA below grid */
+.howto__cta { text-align: center; margin-top: 48px; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .howto__grid { grid-template-columns: repeat(2, 1fr); }
+  .howto__grid > article:nth-child(5) { grid-column: span 2; }
+}
+@media (max-width: 600px) {
+  .howto__grid { grid-template-columns: 1fr; }
+  .howto__grid > article:nth-child(4),
+  .howto__grid > article:nth-child(5) { grid-column: span 1; }
+  .howto__card { padding: 24px 20px; }
+}
+
 /* ---- PACKAGES ---- */
 .packages { padding: 100px 0; background: var(--offwhite); }
 .packages__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; align-items: start; }

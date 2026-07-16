@@ -167,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ---- Scroll-reveal animation ----
   const revealEls = document.querySelectorAll(
-    '.why__card, .package-card, .faq__item, .section-header'
+    '.why__card, .howto__card, .package-card, .faq__item, .section-header'
   );
 
   if ('IntersectionObserver' in window) {
