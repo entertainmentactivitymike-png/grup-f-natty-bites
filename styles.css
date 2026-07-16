@@ -183,8 +183,6 @@ ul { list-style: none; }
   color: var(--white); border-color: transparent;
 }
 .why__card--featured::before { background: rgba(255,255,255,0.2); opacity: 1; }
-.why__card--featured h3 { color: var(--white); }
-.why__card--featured p { color: var(--white); font-weight: 500; }
 .why__featured-tag {
   display: inline-block; margin-top: 16px; font-size: 0.75rem; font-weight: 700;
   background: rgba(255,255,255,0.2); padding: 4px 12px; border-radius: 20px; color: var(--white);
@@ -197,6 +195,9 @@ ul { list-style: none; }
 .why__card--featured .why__icon { background: rgba(255,255,255,0.15); color: var(--white); }
 .why__card h3 { font-size: 1.05rem; font-weight: 700; color: var(--charcoal); margin-bottom: 10px; }
 .why__card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.7; }
+/* Featured card text overrides — must come AFTER the base .why__card h3/p rules */
+.why__card--featured h3 { color: var(--white); }
+.why__card--featured p { color: var(--white); font-weight: 500; }
 
 /* ---- PACKAGES ---- */
 .packages { padding: 100px 0; background: var(--offwhite); }
