@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
 </head>
 <body>
 
@@ -93,13 +93,213 @@
       </div>
     </section>
 
+    <!-- ========== VALUE PROPOSITION ========== -->
+    <section class="value" id="value">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Why Natty Bites?</span>
+          <h2>Real Food For Real Results</h2>
+        </div>
+        <div class="value__grid">
+
+          <!-- Card 1: Problem -->
+          <button class="value__card" data-modal="modal-problem" aria-haspopup="dialog">
+            <div class="value__card-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            </div>
+            <h3>Problem People Face</h3>
+            <p>Tap untuk lihat selengkapnya</p>
+            <span class="value__card-cta">Lihat →</span>
+          </button>
+
+          <!-- Card 2: Consequence -->
+          <button class="value__card" data-modal="modal-consequence" aria-haspopup="dialog">
+            <div class="value__card-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            </div>
+            <h3>Negative Consequence</h3>
+            <p>Tap untuk lihat selengkapnya</p>
+            <span class="value__card-cta">Lihat →</span>
+          </button>
+
+          <!-- Card 3: Solution -->
+          <button class="value__card value__card--featured" data-modal="modal-solution" aria-haspopup="dialog">
+            <div class="value__card-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3>Solution We Offer</h3>
+            <p>Tap untuk lihat selengkapnya</p>
+            <span class="value__card-cta">Lihat →</span>
+          </button>
+
+          <!-- Card 4: Benefits -->
+          <button class="value__card" data-modal="modal-benefits" aria-haspopup="dialog">
+            <div class="value__card-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <h3>Positive Benefits To You</h3>
+            <p>Tap untuk lihat selengkapnya</p>
+            <span class="value__card-cta">Lihat →</span>
+          </button>
+
+          <!-- Card 5: Guarantee -->
+          <button class="value__card" data-modal="modal-guarantee" aria-haspopup="dialog">
+            <div class="value__card-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
+            <h3>Our Guarantee</h3>
+            <p>Tap untuk lihat selengkapnya</p>
+            <span class="value__card-cta">Lihat →</span>
+          </button>
+
+          <!-- Card 6: Halal -->
+          <button class="value__card" data-modal="modal-halal" aria-haspopup="dialog">
+            <div class="value__card-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            </div>
+            <h3>Halal &amp; Hygiene</h3>
+            <p>Tap untuk lihat selengkapnya</p>
+            <span class="value__card-cta">Lihat →</span>
+          </button>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== VALUE CARD MODALS ========== -->
+    <div class="popup-overlay" id="modal-problem" role="dialog" aria-modal="true" aria-labelledby="modal-problem-title" aria-hidden="true">
+      <div class="popup popup--value">
+        <button class="popup__x-close" aria-label="Tutup">&times;</button>
+        <div class="popup__value-icon" aria-hidden="true">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </div>
+        <h2 class="popup__title" id="modal-problem-title">Problem People Face</h2>
+        <p class="popup__value-subtitle">Makan Sehat Terasa Sulit Dijangkau</p>
+        <p class="popup__value-desc">Profesional sibuk, atlet, pelaku diet, dan orang yang peduli kebugaran sering kesulitan dengan waktu, penghitungan makro yang tepat, perencanaan makan, pengetahuan nutrisi, kebersihan makanan, waktu makan yang teratur, dan makanan diet rekayasa yang tidak memuaskan.</p>
+        <ul class="popup__value-list">
+          <li>Kurang waktu untuk menyiapkan makanan sehat</li>
+          <li>Target makro yang tidak akurat dan sulit dipantau</li>
+          <li>Perencanaan makan yang lemah dan tidak konsisten</li>
+          <li>Pengetahuan nutrisi yang terbatas</li>
+          <li>Keraguan terhadap kebersihan dan keamanan makanan</li>
+          <li>Waktu makan yang tidak teratur dan tidak mendukung performa</li>
+          <li>Makanan diet rekayasa yang tidak alami dan tidak mengenyangkan</li>
+        </ul>
+        <button class="btn btn--primary popup__close">Mengerti</button>
+      </div>
+    </div>
+
+    <div class="popup-overlay" id="modal-consequence" role="dialog" aria-modal="true" aria-labelledby="modal-consequence-title" aria-hidden="true">
+      <div class="popup popup--value">
+        <button class="popup__x-close" aria-label="Tutup">&times;</button>
+        <div class="popup__value-icon popup__value-icon--warning" aria-hidden="true">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </div>
+        <h2 class="popup__title" id="modal-consequence-title">Negative Consequence</h2>
+        <p class="popup__value-subtitle">Kesehatan dan Progres Terhambat</p>
+        <p class="popup__value-desc">Tanpa sistem yang lebih baik, orang menghadapi kenaikan berat badan, energi rendah, pertumbuhan otot yang lambat, siklus yo-yo diet, pilihan makanan buruk, risiko makanan tidak aman, kekurangan nutrisi, dan kelelahan menjalani diet.</p>
+        <ul class="popup__value-list">
+          <li>Berat badan terus naik dan sulit dikontrol</li>
+          <li>Level energi menurun dan tidak stabil sepanjang hari</li>
+          <li>Pertumbuhan otot melambat karena asupan protein tidak optimal</li>
+          <li>Terjebak dalam siklus yo-yo diet yang melelahkan</li>
+          <li>Risiko mengonsumsi makanan yang tidak higienis dan tidak aman</li>
+          <li>Kekurangan nutrisi penting yang berdampak pada kesehatan jangka panjang</li>
+          <li>Kepercayaan diri terhadap program diet semakin terkikis</li>
+        </ul>
+        <button class="btn btn--primary popup__close">Mengerti</button>
+      </div>
+    </div>
+
+    <div class="popup-overlay" id="modal-solution" role="dialog" aria-modal="true" aria-labelledby="modal-solution-title" aria-hidden="true">
+      <div class="popup popup--value">
+        <button class="popup__x-close" aria-label="Tutup">&times;</button>
+        <div class="popup__value-icon popup__value-icon--featured" aria-hidden="true">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h2 class="popup__title" id="modal-solution-title">Solution We Offer</h2>
+        <p class="popup__value-subtitle">Makanan Nyata, Struktur yang Jelas</p>
+        <p class="popup__value-desc">Kami mengantarkan makanan setiap hari yang disiapkan secara higienis, dilengkapi informasi nutrisi lengkap, rincian makro yang disesuaikan, langganan terstruktur, konsultasi gratis, edukasi nutrisi, dan bahan-bahan alami yang bersih — tanpa jalan pintas.</p>
+        <ul class="popup__value-list">
+          <li>Pengiriman makanan harian yang terjadwal dan tepat waktu</li>
+          <li>Informasi nutrisi lengkap di setiap menu</li>
+          <li>Rencana makro yang disesuaikan dengan target pribadi</li>
+          <li>Paket langganan meal plan yang terstruktur dan fleksibel</li>
+          <li>Konsultasi ahli nutrisi gratis tanpa komitmen</li>
+          <li>Proses memasak dengan standar kebersihan tinggi</li>
+          <li>Bahan-bahan alami, bersih, tanpa bahan kimia buatan</li>
+        </ul>
+        <button class="btn btn--primary popup__close">Mengerti</button>
+      </div>
+    </div>
+
+    <div class="popup-overlay" id="modal-benefits" role="dialog" aria-modal="true" aria-labelledby="modal-benefits-title" aria-hidden="true">
+      <div class="popup popup--value">
+        <button class="popup__x-close" aria-label="Tutup">&times;</button>
+        <div class="popup__value-icon popup__value-icon--success" aria-hidden="true">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h2 class="popup__title" id="modal-benefits-title">Positive Benefits To You</h2>
+        <p class="popup__value-subtitle">Konsistensi Tanpa Usaha Ekstra</p>
+        <p class="popup__value-desc">Pelanggan menghemat waktu, mengoptimalkan performa, tetap konsisten, membuat pilihan yang lebih cerdas, mempercayai setiap makanan yang dikonsumsi, dan merasakan kepuasan nyata dari hasil yang diraih secara alami dan bertahan lama.</p>
+        <ul class="popup__value-list">
+          <li>Waktu tersimpan setiap hari — tidak perlu masak atau hitung kalori</li>
+          <li>Performa otot dan ketahanan fisik meningkat secara optimal</li>
+          <li>Progres yang konsisten dan terukur dari waktu ke waktu</li>
+          <li>Pilihan makan yang lebih cerdas dan penuh kepercayaan diri</li>
+          <li>Kepercayaan penuh pada kualitas dan keamanan setiap menu</li>
+          <li>Kepuasan nyata yang bertahan lama, bukan sekadar hasil instan</li>
+        </ul>
+        <button class="btn btn--primary popup__close">Mengerti</button>
+      </div>
+    </div>
+
+    <div class="popup-overlay" id="modal-guarantee" role="dialog" aria-modal="true" aria-labelledby="modal-guarantee-title" aria-hidden="true">
+      <div class="popup popup--value">
+        <button class="popup__x-close" aria-label="Tutup">&times;</button>
+        <div class="popup__value-icon" aria-hidden="true">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </div>
+        <h2 class="popup__title" id="modal-guarantee-title">Our Guarantee</h2>
+        <p class="popup__value-subtitle">Jaminan Kualitas di Setiap Pesanan</p>
+        <p class="popup__value-desc">Setiap makanan disiapkan segar dan dikirim dalam hitungan jam untuk menjaga kualitas dan cita rasa. Tetapkan target kesehatanmu dengan percaya diri — jika kamu tidak mencapainya, kami akan mengembalikan 50% biaya cateringmu.</p>
+        <ul class="popup__value-list">
+          <li>Dimasak segar setiap hari, bukan dipanaskan ulang</li>
+          <li>Dikirim pada puncak kesegaran untuk menjaga kualitas optimal</li>
+          <li>Jaminan target — capai tujuanmu atau uang kembali</li>
+          <li>Refund 50% biaya catering jika target yang disepakati tidak tercapai</li>
+        </ul>
+        <button class="btn btn--primary popup__close">Mengerti</button>
+      </div>
+    </div>
+
+    <div class="popup-overlay" id="modal-halal" role="dialog" aria-modal="true" aria-labelledby="modal-halal-title" aria-hidden="true">
+      <div class="popup popup--value">
+        <button class="popup__x-close" aria-label="Tutup">&times;</button>
+        <div class="popup__value-icon" aria-hidden="true">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <h2 class="popup__title" id="modal-halal-title">Halal &amp; Hygiene</h2>
+        <p class="popup__value-subtitle">Standar Kebersihan dan Kehalalan di Setiap Sajian</p>
+        <p class="popup__value-desc">Setiap makanan disiapkan menggunakan bahan-bahan halal bersertifikat di dapur higienis yang mengikuti standar keamanan pangan yang ketat. Dari proses pemilihan bahan hingga pengemasan, kami memastikan setiap hidangan segar, bersih, dan dibuat dengan penuh perhatian.</p>
+        <ul class="popup__value-list">
+          <li>Seluruh bahan baku bersertifikat Halal dari supplier terpercaya</li>
+          <li>Dapur higienis dengan standar keamanan pangan yang ketat</li>
+          <li>Tanpa MSG, tanpa pengawet buatan, tanpa pewarna artifisial</li>
+          <li>Dikemas dalam wadah food-grade yang aman, kedap udara, dan ramah lingkungan</li>
+          <li>Proses dari bahan baku hingga pengemasan dijaga kebersihannya secara konsisten</li>
+        </ul>
+        <button class="btn btn--primary popup__close">Mengerti</button>
+      </div>
+    </div>
+
     <!-- ========== WHY NATTY BITES ========== -->
     <section class="why" id="why">
       <div class="container">
         <div class="section-header">
           <span class="section-label">Mengapa Kami</span>
-          <h2>Mengapa Atlet Memilih Natty Bites?</h2>
-          <p>Kami bukan sekadar katering. Kami adalah partner nutrisi terbaikmu.</p>
+          <h2>Why Natty Bites?</h2>
+          <p>Real Food For Real Results</p>
         </div>
         <div class="why__grid">
           <article class="why__card">

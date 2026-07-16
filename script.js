@@ -116,6 +116,29 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.target === popupOverlay) closePopup(popupOverlay);
   });
 
+  // ---- Value card modals ----
+  document.querySelectorAll('.value__card[data-modal]').forEach(card => {
+    card.addEventListener('click', () => {
+      const modalId = card.getAttribute('data-modal');
+      const overlay = document.getElementById(modalId);
+      if (overlay) openPopup(overlay);
+    });
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        card.click();
+      }
+    });
+  });
+
+  // Close value modals via their inner close buttons and backdrop click
+  document.querySelectorAll('.popup--value').forEach(popup => {
+    const overlay = popup.closest('.popup-overlay');
+    popup.querySelector('.popup__close')?.addEventListener('click', () => closePopup(overlay));
+    popup.querySelector('.popup__x-close')?.addEventListener('click', () => closePopup(overlay));
+    overlay.addEventListener('click', (e) => { if (e.target === overlay) closePopup(overlay); });
+  });
+
   // ---- Privacy Modal ----
   const privacyOverlay  = document.getElementById('privacyOverlay');
   const privacyClose    = document.getElementById('privacyClose');
@@ -136,8 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Close any popup on Escape key
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-      closePopup(popupOverlay);
-      closePopup(privacyOverlay);
+      document.querySelectorAll('.popup-overlay.active').forEach(overlay => closePopup(overlay));
     }
   });
 
@@ -167,7 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ---- Scroll-reveal animation ----
   const revealEls = document.querySelectorAll(
-    '.why__card, .howto__card, .package-card, .faq__item, .section-header'
+    '.why__card, .value__card, .howto__card, .package-card, .faq__item, .section-header'
   );
 
   if ('IntersectionObserver' in window) {
