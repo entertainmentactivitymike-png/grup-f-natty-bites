@@ -139,27 +139,40 @@ ul { list-style: none; }
 /* Hero Visual */
 .hero__visual { display: flex; justify-content: center; align-items: center; }
 .hero__img-frame {
-  position: relative; width: 420px; height: 480px;
+  position: relative; width: 100%; max-width: 520px; height: 540px;
   border-radius: var(--radius-lg); overflow: visible;
 }
-.hero__img-placeholder {
+.hero__img-photo {
   width: 100%; height: 100%; border-radius: var(--radius-lg);
-  background: linear-gradient(145deg, var(--olive-dark) 0%, var(--olive) 100%);
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  box-shadow: var(--shadow-lg); color: var(--white); text-align: center; gap: 16px;
+  object-fit: cover; object-position: center;
+  box-shadow: var(--shadow-lg);
+  display: block;
 }
-.hero__img-icon { font-size: 5rem; }
-.hero__img-placeholder p { font-family: var(--font-display); font-size: 1.6rem; line-height: 1.3; opacity: 0.9; }
 .hero__badge-float {
   position: absolute; background: var(--white); border-radius: 12px;
   padding: 10px 16px; box-shadow: var(--shadow-md);
   display: flex; align-items: center; gap: 8px;
   font-size: 0.82rem; font-weight: 600; color: var(--charcoal);
   white-space: nowrap; animation: floatBadge 3s ease-in-out infinite;
+  font-family: var(--font-body);
 }
-.hero__badge-float--tl { top: -20px; left: -30px; animation-delay: 0s; }
-.hero__badge-float--br { bottom: -16px; right: -30px; animation-delay: 1.5s; }
+.hero__badge-float--tl { top: 20px; left: -16px; animation-delay: 0s; }
+.hero__badge-float--br { bottom: 80px; right: -16px; animation-delay: 1.5s; }
 .badge-icon { font-size: 1.1rem; }
+
+/* Macro chip at bottom of photo */
+.hero__macro-chip {
+  position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
+  background: rgba(34,34,34,0.85); backdrop-filter: blur(8px);
+  border-radius: 40px; padding: 10px 22px;
+  display: flex; align-items: center; gap: 10px;
+  font-family: var(--font-body); font-size: 0.82rem; color: var(--white);
+  white-space: nowrap; box-shadow: var(--shadow-md);
+}
+.hero__macro-item { display: flex; gap: 4px; align-items: center; }
+.hero__macro-item strong { color: var(--beige); }
+.hero__macro-sep { color: rgba(255,255,255,0.3); }
+
 @keyframes floatBadge {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-6px); }
@@ -622,7 +635,7 @@ ul { list-style: none; }
   /* Hero: stack vertically, image first */
   .hero__inner { grid-template-columns: 1fr; gap: 40px; }
   .hero__visual { order: -1; }
-  .hero__img-frame { width: 100%; max-width: 400px; height: 320px; margin: 0 auto; }
+  .hero__img-frame { width: 100%; max-width: 400px; height: 380px; margin: 0 auto; }
 
   /* Section padding reduction */
   .why, .packages, .faq { padding: 72px 0; }
@@ -677,9 +690,9 @@ ul { list-style: none; }
 
   /* Hero */
   .hero { padding: 88px 0 56px; }
-  .hero__img-frame { height: 240px; }
-  /* Hide floating badges on very small screens to prevent overflow */
-  .hero__badge-float { display: none; }
+  .hero__img-frame { height: 280px; }
+  .hero__stats { gap: 14px; }
+  .hero__stat-val { font-size: 1.1rem; }
   .hero__trust { flex-direction: column; gap: 10px; }
 
   /* Sections */
