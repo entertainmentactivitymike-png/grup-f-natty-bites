@@ -8,11 +8,13 @@
 const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz1Gg3-Wj0e1Q1hfs9MrcrZHu_x9SA-FxWIZn9Xw1r9Lm_sjt-9XTcXpt3hOJMI0QY7/exec';
 
 function sendToSheets(nama, instagram) {
-  // Guard: warn clearly if URL has not been configured yet
-  if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbz1Gg3-Wj0e1Q1hfs9MrcrZHu_x9SA-FxWIZn9Xw1r9Lm_sjt-9XTcXpt3hOJMI0QY7/exec') {
-    console.warn('[Natty Bites] Google Sheets URL not configured. Data was NOT saved.');
-    return;
-  }
+  fetch(GOOGLE_SCRIPT_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ nama, instagram }),
+    mode: 'no-cors'
+  }).catch(err => console.error('[Natty Bites] Failed to send to Google Sheets:', err));
+}
 
   fetch(GOOGLE_SCRIPT_URL, {
     method: 'POST',
