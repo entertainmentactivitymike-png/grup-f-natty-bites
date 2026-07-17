@@ -16,14 +16,6 @@ function sendToSheets(nama, instagram) {
   }).catch(err => console.error('[Natty Bites] Failed to send to Google Sheets:', err));
 }
 
-  fetch(GOOGLE_SCRIPT_URL, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ nama, instagram }),
-    mode: 'no-cors' // required for Apps Script cross-origin requests
-  }).catch(err => console.error('[Natty Bites] Failed to send to Google Sheets:', err));
-}
-
 document.addEventListener('DOMContentLoaded', () => {
 
   // ---- Navbar scroll shadow ----
