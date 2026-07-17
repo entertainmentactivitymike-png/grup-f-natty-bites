@@ -3,16 +3,23 @@
    ============================================= */
 
 // ---- Google Sheets Integration ----
-// Replace this URL with your deployed Google Apps Script Web App URL
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbySZVqNauPF5_uOXDqpPDI1R1bekD_bo8jXPMrXo6We9Do5wyb62zESI6VEF_rYrw/exec';
+// IMPORTANT: Replace the URL below with your deployed Google Apps Script Web App URL.
+// Steps: Apps Script → Deploy → New Deployment → Web App → Execute as: Me → Anyone → Deploy
+const GOOGLE_SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
 
 function sendToSheets(nama, instagram) {
+  // Guard: warn clearly if URL has not been configured yet
+  if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL === 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
+    console.warn('[Natty Bites] Google Sheets URL not configured. Data was NOT saved.');
+    return;
+  }
+
   fetch(GOOGLE_SCRIPT_URL, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ nama, instagram }),
     mode: 'no-cors' // required for Apps Script cross-origin requests
-  }).catch(err => console.error('Failed to send to Google Sheets:', err));
+  }).catch(err => console.error('[Natty Bites] Failed to send to Google Sheets:', err));
 }
 
 document.addEventListener('DOMContentLoaded', () => {
