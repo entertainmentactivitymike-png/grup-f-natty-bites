@@ -404,7 +404,7 @@ ul { list-style: none; }
 .product-card__img-wrap {
   position: relative;
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 3 / 4;
   overflow: hidden;
   background: var(--offwhite);
 }
@@ -428,7 +428,7 @@ ul { list-style: none; }
 
 /* Body */
 .product-card__body {
-  padding: 24px 24px 28px;
+  padding: 24px 24px 24px;
   display: flex; flex-direction: column; gap: 14px;
   flex: 1;
 }
