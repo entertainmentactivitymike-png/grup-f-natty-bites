@@ -2,6 +2,19 @@
    NATTY BITES — Landing Page Scripts
    ============================================= */
 
+// ---- Google Sheets Integration ----
+// Replace this URL with your deployed Google Apps Script Web App URL
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbySZVqNauPF5_uOXDqpPDI1R1bekD_bo8jXPMrXo6We9Do5wyb62zESI6VEF_rYrw/exec';
+
+function sendToSheets(nama, instagram) {
+  fetch(GOOGLE_SCRIPT_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ nama, instagram }),
+    mode: 'no-cors' // required for Apps Script cross-origin requests
+  }).catch(err => console.error('Failed to send to Google Sheets:', err));
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 
   // ---- Navbar scroll shadow ----
@@ -86,6 +99,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!nameValid || !igValid) return;
 
+    // Send data to Google Sheets
+    sendToSheets(fullNameInput.value.trim(), instagramInput.value.trim());
+
     // Show popup with user's name
     popupName.textContent = fullNameInput.value.trim();
     openPopup(popupOverlay);
@@ -122,6 +138,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const igValid   = validateField(heroInstagramInput, heroInstagramError, 'Username Instagram wajib diisi.');
 
     if (!nameValid || !igValid) return;
+
+    // Send data to Google Sheets
+    sendToSheets(heroFullNameInput.value.trim(), heroInstagramInput.value.trim());
 
     popupName.textContent = heroFullNameInput.value.trim();
     openPopup(popupOverlay);
