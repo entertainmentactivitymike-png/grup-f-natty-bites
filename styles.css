@@ -878,25 +878,29 @@ ul { list-style: none; }
 .faq__answer p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.75; }
 
 /* ---- FOOTER ---- */
-.footer { background: var(--charcoal); color: var(--white); padding: 64px 0 0; }
-.footer__inner { display: grid; grid-template-columns: 2fr 1fr 1.5fr; gap: 48px; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.1); }
-.footer__brand p { font-size: 0.9rem; color: rgba(255,255,255,0.6); margin-top: 16px; max-width: 280px; line-height: 1.7; }
-.footer__logo .logo-natty { color: var(--white); }
-.footer__logo .logo-bites { color: var(--beige); }
-.footer__logo .logo-sub { color: rgba(255,255,255,0.5); }
-.footer__nav, .footer__contact { display: flex; flex-direction: column; gap: 12px; }
-.footer__nav h4, .footer__contact h4 { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--beige); margin-bottom: 4px; }
-.footer__nav a { font-size: 0.9rem; color: rgba(255,255,255,0.65); transition: color var(--transition); }
-.footer__nav a:hover { color: var(--white); }
-.footer__contact p { font-size: 0.9rem; color: rgba(255,255,255,0.65); }
-.footer__bottom {
-  display: flex; align-items: center; justify-content: center;
-  padding: 20px 0; font-size: 0.82rem; color: rgba(255,255,255,0.4);
+/* ---- FOOTER ---- */
+.footer { background: var(--charcoal); color: var(--white); }
+.footer__simple {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 10px; padding: 40px 24px;
   text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.08);
 }
-.footer__bottom p { color: rgba(255,255,255,0.4); font-size: 0.82rem; }
-.footer__bottom a { color: rgba(255,255,255,0.65); font-weight: 600; transition: color var(--transition); text-decoration: underline; text-underline-offset: 2px; margin-left: 8px; }
-.footer__bottom a:hover { color: var(--white); }
+.footer__tagline {
+  font-size: 1rem; color: rgba(255,255,255,0.85); letter-spacing: 0.01em;
+}
+.footer__tagline strong {
+  font-weight: 700; color: var(--white);
+}
+.footer__copy {
+  font-size: 0.82rem; color: rgba(255,255,255,0.4);
+}
+.footer__copy a {
+  color: rgba(255,255,255,0.65); font-weight: 600;
+  text-decoration: underline; text-underline-offset: 2px;
+  margin-left: 8px; transition: color var(--transition);
+}
+.footer__copy a:hover { color: var(--white); }
 
 /* ---- POPUP / MODAL ---- */
 .popup-overlay {
