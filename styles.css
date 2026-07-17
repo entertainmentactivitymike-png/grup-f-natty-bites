@@ -339,7 +339,7 @@ ul { list-style: none; }
   color: var(--olive); font-weight: 700; font-size: 0.9rem;
   flex-shrink: 0; margin-top: 2px;
 }
-.popup--value .popup__close { display: block; margin: 0 auto; min-width: 140px; }
+.popup--value .popup__close { display: block; margin: 0; min-width: 140px; }
 
 /* ---- WHY NATTY BITES ---- */
 .why { padding: 100px 0; background: var(--white); }
