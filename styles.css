@@ -607,11 +607,13 @@ ul { list-style: none; }
 .footer__nav a:hover { color: var(--white); }
 .footer__contact p { font-size: 0.9rem; color: rgba(255,255,255,0.65); }
 .footer__bottom {
-  display: flex; align-items: center; justify-content: space-between;
+  display: flex; align-items: center; justify-content: center;
   padding: 20px 0; font-size: 0.82rem; color: rgba(255,255,255,0.4);
+  text-align: center;
 }
-.footer__bottom a { color: rgba(255,255,255,0.5); transition: color var(--transition); }
-.footer__bottom a:hover { color: var(--white); text-decoration: underline; }
+.footer__bottom p { color: rgba(255,255,255,0.4); font-size: 0.82rem; }
+.footer__bottom a { color: rgba(255,255,255,0.65); font-weight: 600; transition: color var(--transition); text-decoration: underline; text-underline-offset: 2px; margin-left: 8px; }
+.footer__bottom a:hover { color: var(--white); }
 
 /* ---- POPUP / MODAL ---- */
 .popup-overlay {
