@@ -81,6 +81,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   heroFullNameInput.addEventListener('input', () => {
     if (heroFullNameInput.value.trim()) {
+     validateFullName(heroFullNameInput, heroFullNameError);
+    } else {
       heroFullNameError.textContent = '';
       heroFullNameInput.classList.remove('input--error');
     }
@@ -88,6 +90,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   heroInstagramInput.addEventListener('input', () => {
     if (heroInstagramInput.value.trim()) {
+       validateInstagram(heroInstagramInput, heroInstagramError);
+    } else {
       heroInstagramError.textContent = '';
       heroInstagramInput.classList.remove('input--error');
     }
