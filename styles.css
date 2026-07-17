@@ -327,17 +327,26 @@ ul { list-style: none; }
 .popup__value-icon--success { background: rgba(107,122,78,0.12); color: var(--olive); }
 
 .popup__value-list {
-  list-style: none; display: flex; flex-direction: column; gap: 12px;
+  list-style: none; display: flex; flex-direction: column; gap: 10px;
   margin-bottom: 28px;
 }
 .popup__value-list li {
-  display: flex; align-items: flex-start; gap: 10px;
-  font-size: 0.92rem; color: var(--text-muted); line-height: 1.6;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: baseline;
+  gap: 0 10px;
+  font-size: 0.9rem; line-height: 1.6;
 }
 .popup__value-list li::before {
   content: '✓';
-  color: var(--olive); font-weight: 700; font-size: 0.9rem;
-  flex-shrink: 0; margin-top: 2px;
+  color: var(--olive); font-weight: 700; font-size: 0.85rem;
+  flex-shrink: 0;
+}
+.popup__value-list li strong {
+  font-weight: 700; color: var(--charcoal); white-space: nowrap;
+}
+.popup__value-list li span {
+  color: var(--text-muted);
 }
 .popup--value .popup__close { display: block; margin: 0; min-width: 140px; }
 
