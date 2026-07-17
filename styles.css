@@ -104,50 +104,83 @@ ul { list-style: none; }
 /* ---- HERO ---- */
 .hero {
   padding: 140px 0 100px;
-  background: linear-gradient(145deg, var(--offwhite) 0%, #eae8df 100%);
   position: relative; overflow: hidden;
+  background-image: url('WhatsApp Image 2026-07-16 at 23.40.24.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
-.hero::before {
-  content: ''; position: absolute; top: -120px; right: -120px;
-  width: 500px; height: 500px;
-  background: radial-gradient(circle, rgba(107,122,78,0.1) 0%, transparent 70%);
-  pointer-events: none;
+.hero__bg-overlay {
+  position: absolute; inset: 0; z-index: 0;
+  background: linear-gradient(
+    105deg,
+    rgba(34, 40, 22, 0.82) 0%,
+    rgba(34, 40, 22, 0.65) 50%,
+    rgba(34, 40, 22, 0.5) 100%
+  );
 }
+.hero > .container { position: relative; z-index: 1; }
 .hero__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
 .hero__content { max-width: 580px; }
 .hero__badge {
   display: inline-block; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em;
-  text-transform: uppercase; color: var(--olive); background: rgba(107,122,78,0.12);
+  text-transform: uppercase; color: var(--beige); background: rgba(220,207,180,0.18);
   padding: 6px 14px; border-radius: 20px; margin-bottom: 20px;
+  border: 1px solid rgba(220,207,180,0.3);
 }
 .hero__headline {
   font-family: var(--font-display); font-size: clamp(3rem, 6vw, 5rem);
-  line-height: 1.05; color: var(--charcoal); margin-bottom: 12px;
+  line-height: 1.05; color: var(--white); margin-bottom: 12px;
   letter-spacing: 0.02em; text-transform: uppercase;
 }
-.hero__headline em { color: var(--olive-dark); font-style: normal; }
-.hero__tagline { font-size: 1.05rem; font-weight: 500; color: var(--olive); margin-bottom: 20px; font-style: italic; }
-.hero__desc { font-size: 1rem; color: var(--text-muted); line-height: 1.75; margin-bottom: 36px; }
+.hero__headline em { color: #a8c27a; font-style: normal; }
+.hero__tagline { font-size: 1.05rem; font-weight: 500; color: rgba(220,207,180,0.9); margin-bottom: 20px; font-style: italic; }
+.hero__desc { font-size: 1rem; color: rgba(255,255,255,0.75); line-height: 1.75; margin-bottom: 36px; }
 .hero__actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 40px; }
 .hero__trust { display: flex; gap: 24px; flex-wrap: wrap; }
 .hero__trust li {
   display: flex; align-items: center; gap: 8px;
-  font-size: 0.85rem; font-weight: 500; color: var(--text-muted);
+  font-size: 0.85rem; font-weight: 500; color: rgba(255,255,255,0.7);
 }
-.hero__trust svg { color: var(--olive); flex-shrink: 0; }
+.hero__trust svg { color: #a8c27a; flex-shrink: 0; }
 
-/* Hero Visual */
+/* Ghost light button for dark backgrounds */
+.btn--ghost-light {
+  background: transparent; color: var(--white);
+  border: 2px solid rgba(255,255,255,0.45);
+}
+.btn--ghost-light:hover {
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.8);
+}
+
+/* Hero Form Column */
+.hero__form-wrap {
+  display: flex; justify-content: center; align-items: center;
+}
+.hero__form {
+  background: var(--white); border-radius: var(--radius-lg);
+  padding: 36px 32px; width: 100%; max-width: 440px;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+  display: flex; flex-direction: column; gap: 20px;
+}
+.hero__form-title {
+  font-family: var(--font-display); font-size: 1.5rem; font-weight: 400;
+  color: var(--olive-dark); text-transform: uppercase; letter-spacing: 0.04em;
+  margin-bottom: 4px; text-align: center;
+}
+
+/* Hero Visual (kept for any legacy references) */
 .hero__visual { display: flex; justify-content: center; align-items: center; }
 .hero__img-frame {
   position: relative; width: 100%; max-width: 520px; height: 540px;
-  border-radius: var(--radius-lg); overflow: visible; /* allow badges to overflow */
+  border-radius: var(--radius-lg); overflow: visible;
 }
 .hero__img-photo {
   width: 100%; height: 100%; border-radius: var(--radius-lg);
   object-fit: cover; object-position: center;
   box-shadow: var(--shadow-lg);
   display: block;
-  /* clip photo to frame without clipping absolute children */
   position: relative; z-index: 0;
 }
 .hero__badge-float {
@@ -670,13 +703,10 @@ ul { list-style: none; }
   .waitlist { padding: 72px 0; }
   .section-header { margin-bottom: 40px; }
 
-  /* Hero: stack, photo on top */
+  /* Hero: stack, form below content */
   .hero__inner { grid-template-columns: 1fr; gap: 36px; }
-  .hero__visual { order: -1; }
-  .hero__img-frame { width: 100%; max-width: 480px; height: 400px; margin: 0 auto; }
-  /* Badges: anchor inside the frame properly */
-  .hero__badge-float--tl { top: 16px; left: 16px; }
-  .hero__badge-float--br { bottom: 72px; right: 16px; }
+  .hero__form-wrap { width: 100%; }
+  .hero__form { max-width: 100%; }
 
   /* Value: 2-col */
   .value__grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
@@ -715,11 +745,6 @@ ul { list-style: none; }
   .hero__actions .btn { width: 100%; justify-content: center; }
   .hero__trust { gap: 14px; flex-wrap: wrap; }
   .hero__img-frame { max-width: 100%; height: 340px; }
-  /* Keep badges visible but safely inside */
-  .hero__badge-float { font-size: 0.72rem; padding: 7px 11px; }
-  .hero__badge-float--tl { top: 12px; left: 12px; }
-  .hero__badge-float--br { bottom: 60px; right: 12px; }
-  .hero__macro-chip { font-size: 0.72rem; padding: 7px 14px; gap: 7px; bottom: 14px; }
 
   /* Value: 1-col */
   .value__grid { grid-template-columns: 1fr; gap: 12px; }

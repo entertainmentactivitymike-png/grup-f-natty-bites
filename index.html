@@ -44,6 +44,7 @@
 
     <!-- ========== HERO ========== -->
     <section class="hero" id="home">
+      <div class="hero__bg-overlay" aria-hidden="true"></div>
       <div class="container hero__inner">
         <div class="hero__content">
           <span class="hero__badge">🌿 Pre-Launch — Jakarta</span>
@@ -57,7 +58,7 @@
           </p>
           <div class="hero__actions">
             <a href="#waitlist" class="btn btn--primary btn--lg">Konsultasi Sekarang →</a>
-            <a href="#packages" class="btn btn--ghost btn--lg">Lihat Paket Diet</a>
+            <a href="#packages" class="btn btn--ghost-light btn--lg">Lihat Paket Diet</a>
           </div>
           <ul class="hero__trust" role="list">
             <li>
@@ -74,29 +75,45 @@
             </li>
           </ul>
         </div>
-        <div class="hero__visual">
-          <div class="hero__img-frame">
-            <img
-              src="WhatsApp Image 2026-07-16 at 23.40.24.jpeg"
-              alt="Natty Bites — Grilled chicken with roasted vegetables and avocado, high-protein meal"
-              class="hero__img-photo"
-            />
-            <div class="hero__badge-float hero__badge-float--tl">
-              <span class="badge-icon">🌱</span>
-              <span>100% Natural</span>
+        <div class="hero__form-wrap">
+          <form class="hero__form" id="heroForm" novalidate aria-label="Formulir konsultasi cepat">
+            <p class="hero__form-title">Daftar Konsultasi Gratis</p>
+            <div class="form-group">
+              <label for="heroFullName">Nama Lengkap <span aria-hidden="true">*</span></label>
+              <input
+                type="text"
+                id="heroFullName"
+                name="fullName"
+                placeholder="Masukkan nama lengkap kamu"
+                required
+                autocomplete="name"
+                aria-required="true"
+              />
+              <span class="form-error" id="heroFullNameError" role="alert" aria-live="polite"></span>
             </div>
-            <div class="hero__badge-float hero__badge-float--br">
-              <span class="badge-icon">⚡</span>
-              <span>Performance-Ready</span>
+            <div class="form-group">
+              <label for="heroInstagram">Username Instagram <span aria-hidden="true">*</span></label>
+              <div class="input-prefix-wrap">
+                <span class="input-prefix" aria-hidden="true">@</span>
+                <input
+                  type="text"
+                  id="heroInstagram"
+                  name="instagram"
+                  placeholder="username_kamu"
+                  required
+                  autocomplete="off"
+                  aria-required="true"
+                />
+              </div>
+              <span class="form-error" id="heroInstagramError" role="alert" aria-live="polite"></span>
             </div>
-            <div class="hero__macro-chip">
-              <span class="hero__macro-item"><strong>P</strong> 40%</span>
-              <span class="hero__macro-sep">·</span>
-              <span class="hero__macro-item"><strong>C</strong> 35%</span>
-              <span class="hero__macro-sep">·</span>
-              <span class="hero__macro-item"><strong>F</strong> 25%</span>
-            </div>
-          </div>
+            <button type="submit" class="btn btn--primary btn--lg btn--full">
+              Konsultasi Sekarang →
+            </button>
+            <p class="form-privacy">
+              🔒 Data kamu aman. Baca <a href="#privacy" id="heroPrivacyLink">Privacy &amp; Policy</a> Kami.
+            </p>
+          </form>
         </div>
       </div>
     </section>

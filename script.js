@@ -87,12 +87,45 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!nameValid || !igValid) return;
 
     // Show popup with user's name
-    const firstName = fullNameInput.value.trim().split(' ')[0];
     popupName.textContent = fullNameInput.value.trim();
     openPopup(popupOverlay);
 
     // Reset form
     form.reset();
+  });
+
+  // ---- Hero Form ----
+  const heroForm = document.getElementById('heroForm');
+  const heroFullNameInput = document.getElementById('heroFullName');
+  const heroInstagramInput = document.getElementById('heroInstagram');
+  const heroFullNameError = document.getElementById('heroFullNameError');
+  const heroInstagramError = document.getElementById('heroInstagramError');
+
+  heroFullNameInput.addEventListener('input', () => {
+    if (heroFullNameInput.value.trim()) {
+      heroFullNameError.textContent = '';
+      heroFullNameInput.classList.remove('input--error');
+    }
+  });
+
+  heroInstagramInput.addEventListener('input', () => {
+    if (heroInstagramInput.value.trim()) {
+      heroInstagramError.textContent = '';
+      heroInstagramInput.classList.remove('input--error');
+    }
+  });
+
+  heroForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const nameValid = validateField(heroFullNameInput, heroFullNameError, 'Nama lengkap wajib diisi.');
+    const igValid   = validateField(heroInstagramInput, heroInstagramError, 'Username Instagram wajib diisi.');
+
+    if (!nameValid || !igValid) return;
+
+    popupName.textContent = heroFullNameInput.value.trim();
+    openPopup(popupOverlay);
+    heroForm.reset();
   });
 
   // ---- Popup helpers ----
@@ -142,7 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ---- Privacy Modal ----
   const privacyOverlay  = document.getElementById('privacyOverlay');
   const privacyClose    = document.getElementById('privacyClose');
-  const privacyLinks    = document.querySelectorAll('#privacyLink, #footerPrivacyLink');
+  const privacyLinks    = document.querySelectorAll('#privacyLink, #footerPrivacyLink, #heroPrivacyLink');
 
   privacyLinks.forEach(link => {
     link.addEventListener('click', (e) => {
