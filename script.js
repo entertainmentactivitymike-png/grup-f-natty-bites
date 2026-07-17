@@ -5,11 +5,11 @@
 // ---- Google Sheets Integration ----
 // IMPORTANT: Replace the URL below with your deployed Google Apps Script Web App URL.
 // Steps: Apps Script → Deploy → New Deployment → Web App → Execute as: Me → Anyone → Deploy
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwR1CRGjgXNOsbe4Pu6m3TBfPIezE8jia2B75Q1V3Kl8iLvh52qGIE74uNmjXLGcd_A/exec';
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz1Gg3-Wj0e1Q1hfs9MrcrZHu_x9SA-FxWIZn9Xw1r9Lm_sjt-9XTcXpt3hOJMI0QY7/exec';
 
 function sendToSheets(nama, instagram) {
   // Guard: warn clearly if URL has not been configured yet
-  if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbwR1CRGjgXNOsbe4Pu6m3TBfPIezE8jia2B75Q1V3Kl8iLvh52qGIE74uNmjXLGcd_A/exec') {
+  if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbz1Gg3-Wj0e1Q1hfs9MrcrZHu_x9SA-FxWIZn9Xw1r9Lm_sjt-9XTcXpt3hOJMI0QY7/exec') {
     console.warn('[Natty Bites] Google Sheets URL not configured. Data was NOT saved.');
     return;
   }
