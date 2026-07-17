@@ -291,10 +291,10 @@ ul { list-style: none; }
 
 /* Value card popup styles */
 .popup--value { text-align: left; max-width: 520px; position: relative; }
-.popup--value .popup__title { font-size: 1.4rem; margin-bottom: 8px; text-align: left; }
+.popup--value .popup__title { font-size: 1.4rem; margin-bottom: 8px; text-align: center; }
 .popup__value-subtitle {
   font-size: 0.95rem; font-weight: 700; color: var(--olive-dark);
-  margin-bottom: 10px;
+  margin-bottom: 10px; text-align: center;
 }
 .popup__value-desc {
   font-size: 0.88rem; color: var(--text-muted); line-height: 1.7;
@@ -315,7 +315,7 @@ ul { list-style: none; }
   width: 56px; height: 56px; border-radius: 14px;
   background: rgba(107,122,78,0.1);
   display: flex; align-items: center; justify-content: center;
-  color: var(--olive-dark); margin-bottom: 16px;
+  color: var(--olive-dark); margin: 0 auto 16px;
   overflow: hidden; padding: 8px;
 }
 .popup__value-icon img {
@@ -331,19 +331,15 @@ ul { list-style: none; }
   margin-bottom: 28px;
 }
 .popup__value-list li {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  align-items: baseline;
-  gap: 0 10px;
   font-size: 0.9rem; line-height: 1.6;
+  color: var(--text-muted);
 }
 .popup__value-list li::before {
   content: '✓';
   color: var(--olive); font-weight: 700; font-size: 0.85rem;
-  flex-shrink: 0;
 }
 .popup__value-list li strong {
-  font-weight: 700; color: var(--charcoal); white-space: nowrap;
+  font-weight: 700; color: var(--charcoal);
 }
 .popup__value-list li span {
   color: var(--text-muted);
