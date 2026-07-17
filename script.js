@@ -62,12 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
     link.addEventListener('click', closeMobileMenu);
   });
 
-  // ---- Waitlist Form ----
-  const form = document.getElementById('waitlistForm');
-  const fullNameInput = document.getElementById('fullName');
-  const instagramInput = document.getElementById('instagram');
-  const fullNameError = document.getElementById('fullNameError');
-  const instagramError = document.getElementById('instagramError');
+  // ---- Hero Form ----
   const popupOverlay = document.getElementById('popupOverlay');
   const popupName = document.getElementById('popupName');
   const popupClose = document.getElementById('popupClose');
@@ -84,40 +79,6 @@ document.addEventListener('DOMContentLoaded', () => {
     return true;
   }
 
-  fullNameInput.addEventListener('input', () => {
-    if (fullNameInput.value.trim()) {
-      fullNameError.textContent = '';
-      fullNameInput.classList.remove('input--error');
-    }
-  });
-
-  instagramInput.addEventListener('input', () => {
-    if (instagramInput.value.trim()) {
-      instagramError.textContent = '';
-      instagramInput.classList.remove('input--error');
-    }
-  });
-
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    const nameValid = validateField(fullNameInput, fullNameError, 'Nama lengkap wajib diisi.');
-    const igValid   = validateField(instagramInput, instagramError, 'Username Instagram wajib diisi.');
-
-    if (!nameValid || !igValid) return;
-
-    // Send data to Google Sheets
-    sendToSheets(fullNameInput.value.trim(), instagramInput.value.trim());
-
-    // Show popup with user's name
-    popupName.textContent = fullNameInput.value.trim();
-    openPopup(popupOverlay);
-
-    // Reset form
-    form.reset();
-  });
-
-  // ---- Hero Form ----
   const heroForm = document.getElementById('heroForm');
   const heroFullNameInput = document.getElementById('heroFullName');
   const heroInstagramInput = document.getElementById('heroInstagram');
