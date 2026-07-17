@@ -140,16 +140,19 @@ ul { list-style: none; }
 .hero__visual { display: flex; justify-content: center; align-items: center; }
 .hero__img-frame {
   position: relative; width: 100%; max-width: 520px; height: 540px;
-  border-radius: var(--radius-lg); overflow: visible;
+  border-radius: var(--radius-lg); overflow: visible; /* allow badges to overflow */
 }
 .hero__img-photo {
   width: 100%; height: 100%; border-radius: var(--radius-lg);
   object-fit: cover; object-position: center;
   box-shadow: var(--shadow-lg);
   display: block;
+  /* clip photo to frame without clipping absolute children */
+  position: relative; z-index: 0;
 }
 .hero__badge-float {
-  position: absolute; background: var(--white); border-radius: 12px;
+  position: absolute; z-index: 2;
+  background: var(--white); border-radius: 12px;
   padding: 10px 16px; box-shadow: var(--shadow-md);
   display: flex; align-items: center; gap: 8px;
   font-size: 0.82rem; font-weight: 600; color: var(--charcoal);
@@ -168,6 +171,7 @@ ul { list-style: none; }
   display: flex; align-items: center; gap: 10px;
   font-family: var(--font-body); font-size: 0.82rem; color: var(--white);
   white-space: nowrap; box-shadow: var(--shadow-md);
+  z-index: 2;
 }
 .hero__macro-item { display: flex; gap: 4px; align-items: center; }
 .hero__macro-item strong { color: var(--beige); }
@@ -291,15 +295,6 @@ ul { list-style: none; }
   flex-shrink: 0; margin-top: 2px;
 }
 .popup--value .popup__close { display: block; margin: 0 auto; min-width: 140px; }
-
-/* Responsive */
-@media (max-width: 900px) {
-  .value__grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 540px) {
-  .value__grid { grid-template-columns: 1fr; }
-  .value__card { padding: 24px 20px; }
-}
 
 /* ---- WHY NATTY BITES ---- */
 .why { padding: 100px 0; background: var(--white); }
@@ -429,18 +424,6 @@ ul { list-style: none; }
 /* CTA below grid */
 .howto__cta { text-align: center; margin-top: 48px; }
 
-/* Responsive */
-@media (max-width: 900px) {
-  .howto__grid { grid-template-columns: repeat(2, 1fr); }
-  .howto__grid > article:nth-child(5) { grid-column: span 2; }
-}
-@media (max-width: 600px) {
-  .howto__grid { grid-template-columns: 1fr; }
-  .howto__grid > article:nth-child(4),
-  .howto__grid > article:nth-child(5) { grid-column: span 1; }
-  .howto__card { padding: 24px 20px; }
-}
-
 /* ---- PACKAGES ---- */
 .packages { padding: 100px 0; background: var(--offwhite); }
 .packages__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; align-items: start; }
@@ -501,13 +484,6 @@ ul { list-style: none; }
 .package-card--hero .macro__lbl { color: rgba(255,255,255,0.6); }
 .packages__note { text-align: center; margin-top: 40px; font-size: 0.95rem; color: var(--text-muted); }
 .packages__note a { color: var(--olive-dark); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
-
-/* ---- 1024px: tablet landscape ---- */
-@media (max-width: 1024px) {
-  .packages__grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
-  .package-card--hero { transform: none; }
-  .package-card--hero:hover { transform: translateY(-6px); }
-}
 
 /* ---- WAITLIST ---- */
 .waitlist {
@@ -634,126 +610,234 @@ ul { list-style: none; }
 .popup--privacy .popup__close { display: block; margin: 0 auto; }
 
 /* ================================================================
-   RESPONSIVE — Mobile-First Refinements
+   RESPONSIVE — Comprehensive Mobile-First
    Breakpoints:
-     1024px  tablet landscape
-      900px  tablet portrait / small laptop
-      768px  large phone / tablet narrow
+     1200px  large laptop / wide tablet landscape
+     1024px  tablet landscape / small laptop
+      900px  tablet portrait
+      768px  large phone / narrow tablet
+      600px  mid phone
       480px  standard phone (375–480px)
       360px  small phone
    ================================================================ */
 
-/* ---- Touch targets: ensure all interactive elements are ≥44px ---- */
+/* ---- Touch targets ---- */
 .btn { min-height: 44px; }
 .faq__question { min-height: 44px; }
 .navbar__hamburger { min-height: 44px; min-width: 44px; justify-content: center; }
+/* Prevent iOS input zoom */
+.form-group input { font-size: 1rem; }
 
-/* ---- 1024px: tablet landscape ---- */
+/* ================================================================
+   1024px — Tablet landscape / small laptop
+   ================================================================ */
 @media (max-width: 1024px) {
+  /* Hero: reduce gap, let content breathe */
+  .hero__inner { gap: 40px; }
+  .hero__img-frame { max-width: 420px; height: 460px; }
+
+  /* Floating badges: pull inside frame so they don't overflow */
+  .hero__badge-float--tl { top: 16px; left: 12px; }
+  .hero__badge-float--br { bottom: 80px; right: 12px; }
+
+  /* Value: 2 col */
+  .value__grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* Why: 2 col */
   .why__grid { grid-template-columns: repeat(2, 1fr); }
-}
 
-/* ---- 900px: tablet portrait ---- */
-@media (max-width: 900px) {
-  /* Hero: stack vertically, image first */
-  .hero__inner { grid-template-columns: 1fr; gap: 40px; }
-  .hero__visual { order: -1; }
-  .hero__img-frame { width: 100%; max-width: 400px; height: 380px; margin: 0 auto; }
+  /* Howto: 2 col, step 5 spans full row */
+  .howto__grid { grid-template-columns: repeat(2, 1fr); }
+  .howto__grid > article:nth-child(5) { grid-column: span 2; }
 
-  /* Section padding reduction */
-  .why, .packages, .faq { padding: 72px 0; }
-  .waitlist { padding: 72px 0; }
+  /* Packages: keep 3-col but reduce padding */
+  .package-card { padding: 28px 22px; }
+  .package-card--hero { transform: none; }
+  .package-card--hero:hover { transform: translateY(-6px); }
 
-  /* Waitlist: stack form below content */
-  .waitlist__inner { grid-template-columns: 1fr; gap: 40px; }
-
-  /* Footer: brand spans full width, nav and contact side by side */
+  /* Footer: 2-col (brand full width top) */
   .footer__inner { grid-template-columns: 1fr 1fr; gap: 32px; }
   .footer__brand { grid-column: 1 / -1; }
 }
 
-/* ---- 768px: large phone / narrow tablet ---- */
+/* ================================================================
+   900px — Tablet portrait
+   ================================================================ */
+@media (max-width: 900px) {
+  /* Section padding */
+  .hero { padding: 110px 0 72px; }
+  .value, .why, .howto, .packages, .faq { padding: 72px 0; }
+  .waitlist { padding: 72px 0; }
+  .section-header { margin-bottom: 40px; }
+
+  /* Hero: stack, photo on top */
+  .hero__inner { grid-template-columns: 1fr; gap: 36px; }
+  .hero__visual { order: -1; }
+  .hero__img-frame { width: 100%; max-width: 480px; height: 400px; margin: 0 auto; }
+  /* Badges: anchor inside the frame properly */
+  .hero__badge-float--tl { top: 16px; left: 16px; }
+  .hero__badge-float--br { bottom: 72px; right: 16px; }
+
+  /* Value: 2-col */
+  .value__grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+
+  /* Why: 2-col */
+  .why__grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+
+  /* Howto: 2-col */
+  .howto__grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .howto__grid > article:nth-child(5) { grid-column: span 2; }
+
+  /* Packages: 2-col */
+  .packages__grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  /* Bulk Fuel spans full width as hero */
+  .packages__grid > article:first-child { grid-column: span 2; }
+
+  /* Waitlist: stack */
+  .waitlist__inner { grid-template-columns: 1fr; gap: 40px; }
+  .waitlist__inner { padding: 0 0; }
+}
+
+/* ================================================================
+   768px — Large phone / narrow tablet
+   ================================================================ */
 @media (max-width: 768px) {
-  /* Navbar: hide desktop links, show hamburger */
+  /* Navbar */
   .navbar__links, .navbar__cta { display: none; }
   .navbar__hamburger { display: flex; }
 
   /* Hero */
-  .hero { padding: 100px 0 64px; }
-  .hero__headline { font-size: clamp(2.4rem, 9vw, 3.4rem); line-height: 1.05; }
-  .hero__actions { flex-direction: column; }
+  .hero { padding: 96px 0 60px; }
+  .hero__content { max-width: 100%; }
+  .hero__headline { font-size: clamp(2.6rem, 10vw, 3.6rem); line-height: 1.0; }
+  .hero__desc { margin-bottom: 28px; }
+  .hero__actions { flex-direction: column; gap: 12px; margin-bottom: 28px; }
   .hero__actions .btn { width: 100%; justify-content: center; }
-  .hero__trust { gap: 14px; }
+  .hero__trust { gap: 14px; flex-wrap: wrap; }
+  .hero__img-frame { max-width: 100%; height: 340px; }
+  /* Keep badges visible but safely inside */
+  .hero__badge-float { font-size: 0.72rem; padding: 7px 11px; }
+  .hero__badge-float--tl { top: 12px; left: 12px; }
+  .hero__badge-float--br { bottom: 60px; right: 12px; }
+  .hero__macro-chip { font-size: 0.72rem; padding: 7px 14px; gap: 7px; bottom: 14px; }
 
-  /* Why cards: single column */
-  .why__grid { grid-template-columns: 1fr; gap: 16px; }
-  .why__card { padding: 28px 22px; }
+  /* Value: 1-col */
+  .value__grid { grid-template-columns: 1fr; gap: 12px; }
+  .value__card { padding: 24px 20px; }
 
-  /* Package cards: full-width, no scale */
-  .packages__grid { max-width: 100%; gap: 16px; }
-  .package-card { padding: 28px 22px; }
+  /* Why: 1-col */
+  .why__grid { grid-template-columns: 1fr; gap: 12px; }
+  .why__card { padding: 24px 20px; }
+
+  /* Howto: 1-col, all steps single */
+  .howto__grid { grid-template-columns: 1fr; gap: 12px; }
+  .howto__grid > article:nth-child(4),
+  .howto__grid > article:nth-child(5) { grid-column: span 1; }
+  .howto__card { padding: 24px 20px; }
+
+  /* Packages: 1-col */
+  .packages__grid { grid-template-columns: 1fr; gap: 16px; }
+  .packages__grid > article:first-child { grid-column: span 1; }
+  .package-card { padding: 24px 20px; }
 
   /* Section headers */
-  .section-header { margin-bottom: 36px; }
-  .section-header h2 { font-size: clamp(1.8rem, 7vw, 2.6rem); }
+  .section-header h2 { font-size: clamp(1.8rem, 7vw, 2.4rem); }
+  .section-header p { font-size: 0.95rem; }
+
+  /* Waitlist form */
+  .waitlist__form-wrap { padding: 32px 24px; }
+  .waitlist__content h2 { font-size: clamp(1.8rem, 6vw, 2.4rem); }
 
   /* FAQ */
-  .faq__question { font-size: 0.95rem; padding: 18px 4px; }
+  .faq__question { font-size: 0.92rem; padding: 18px 4px; }
 
-  /* Footer: stack fully */
+  /* Footer: full stack */
   .footer__inner { grid-template-columns: 1fr; gap: 28px; }
   .footer__brand { grid-column: auto; }
   .footer { padding-top: 48px; }
+  .footer__bottom { flex-direction: column; gap: 8px; text-align: center; }
 }
 
-/* ---- 480px: standard phone ---- */
+/* ================================================================
+   600px — Mid phone
+   ================================================================ */
+@media (max-width: 600px) {
+  .hero__img-frame { height: 300px; }
+  /* Stack trust badges vertically */
+  .hero__trust { flex-direction: column; gap: 10px; }
+  .hero__headline { font-size: clamp(2.2rem, 10vw, 3rem); }
+
+  /* Waitlist perks tighter */
+  .waitlist__perks li { font-size: 0.88rem; }
+}
+
+/* ================================================================
+   480px — Standard phone
+   ================================================================ */
 @media (max-width: 480px) {
-  /* Container: tighter horizontal padding */
   .container { padding: 0 16px; }
 
+  /* Section padding */
+  .hero { padding: 84px 0 48px; }
+  .value, .why, .howto, .packages, .faq { padding: 52px 0; }
+  .waitlist { padding: 52px 0; }
+  .section-header { margin-bottom: 28px; }
+  .section-header h2 { font-size: clamp(1.6rem, 8vw, 2.2rem); }
+
   /* Hero */
-  .hero { padding: 88px 0 56px; }
-  .hero__img-frame { height: 280px; }
-  .hero__stats { gap: 14px; }
-  .hero__stat-val { font-size: 1.1rem; }
-  .hero__trust { flex-direction: column; gap: 10px; }
+  .hero__headline { font-size: clamp(2rem, 11vw, 2.8rem); }
+  .hero__img-frame { height: 260px; }
+  /* Hide floating badges at this size — they clip even when inset */
+  .hero__badge-float { display: none; }
+  .hero__macro-chip { font-size: 0.68rem; padding: 6px 12px; gap: 6px; }
 
-  /* Sections */
-  .why, .packages, .faq { padding: 56px 0; }
-  .waitlist { padding: 56px 0; }
-  .why__card { padding: 24px 18px; }
-  .package-card { padding: 24px 18px; }
+  /* Cards */
+  .value__card { padding: 20px 16px; }
+  .why__card { padding: 20px 16px; }
+  .howto__card { padding: 20px 16px; }
+  .package-card { padding: 20px 16px; }
 
-  /* Waitlist form */
-  .waitlist__form-wrap { padding: 28px 20px; }
-  .waitlist__content h2 { font-size: clamp(1.6rem, 7vw, 2rem); }
-
-  /* Buttons: full-width in form */
-  .btn--full { font-size: 0.95rem; padding: 14px 20px; }
-
-  /* Footer */
-  .footer__bottom { flex-direction: column; gap: 8px; text-align: center; }
-
-  /* Popups: tighter padding, max-height with scroll */
-  .popup {
-    padding: 32px 20px;
-    max-height: 90vh;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-  .popup__title { font-size: 1.4rem; }
-  .popup-overlay { padding: 16px; align-items: flex-end; }
-  .popup-overlay.active .popup { border-radius: var(--radius-lg) var(--radius-lg) 0 0; }
-}
-
-/* ---- 360px: small phone ---- */
-@media (max-width: 360px) {
-  .hero__headline { font-size: 2.4rem; }
-  .navbar__inner { height: 60px; }
-  .hero { padding: 80px 0 48px; }
-  .why__card h3, .package-card__name { font-size: 1rem; }
+  /* Package price */
+  .package-card__price-main { font-size: 1.6rem; }
   .package-card__name { font-size: 1.6rem; }
   .macro__val { font-size: 1rem; }
+
+  /* Waitlist form */
+  .waitlist__form-wrap { padding: 24px 16px; }
+  .waitlist__content h2 { font-size: clamp(1.5rem, 7vw, 1.9rem); }
+
+  /* Buttons */
+  .btn--full { font-size: 0.92rem; padding: 13px 16px; }
+  .btn--lg { padding: 13px 20px; font-size: 0.95rem; }
+
+  /* Popups: slide up from bottom */
+  .popup-overlay { padding: 0; align-items: flex-end; }
+  .popup {
+    padding: 28px 20px 32px;
+    max-height: 88vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    width: 100%;
+    max-width: 100%;
+  }
+  .popup__title { font-size: 1.4rem; }
+  .popup--value { max-width: 100%; }
+  .popup--privacy { max-width: 100%; }
+}
+
+/* ================================================================
+   360px — Small phone
+   ================================================================ */
+@media (max-width: 360px) {
+  .navbar__inner { height: 60px; }
+  .hero { padding: 76px 0 40px; }
+  .hero__headline { font-size: 1.9rem; }
+  .hero__img-frame { height: 220px; }
+  .logo-natty { font-size: 1.2rem; }
+  .logo-bites { font-size: 0.75rem; }
+  .package-card__price-main { font-size: 1.4rem; }
+  .section-header h2 { font-size: 1.6rem; }
 }
 
 /* ---- Scroll reveal ---- */
