@@ -900,7 +900,7 @@ ul { list-style: none; }
 }
 
 .footer__logo-img {
-  height: 20px; width: auto; display: block; object-fit: contain;
+  height: 30px; width: auto; display: block; object-fit: contain;
 }
 
 .footer__copy {
