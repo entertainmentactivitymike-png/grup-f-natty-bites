@@ -57,10 +57,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ---- Hero Form ----
-  const popupOverlay = document.getElementById('popupOverlay');
-  const popupName = document.getElementById('popupName');
-  const popupClose = document.getElementById('popupClose');
-
   function validateField(input, errorEl, message) {
     const val = input.value.trim();
     if (!val) {
@@ -108,9 +104,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Send data to Google Sheets
     sendToSheets(heroFullNameInput.value.trim(), heroInstagramInput.value.trim());
 
-    popupName.textContent = heroFullNameInput.value.trim();
-    openPopup(popupOverlay);
-    heroForm.reset();
+    // Redirect to thank-you page
+    window.location.href = 'thank-you.html';
   });
 
   // ---- Popup helpers ----
@@ -127,12 +122,6 @@ document.addEventListener('DOMContentLoaded', () => {
     overlay.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
   }
-
-  // Close thank-you popup
-  popupClose.addEventListener('click', () => closePopup(popupOverlay));
-  popupOverlay.addEventListener('click', (e) => {
-    if (e.target === popupOverlay) closePopup(popupOverlay);
-  });
 
   // ---- Value card modals ----
   document.querySelectorAll('.value__card[data-modal]').forEach(card => {
