@@ -240,15 +240,8 @@ ul { list-style: none; }
 }
 
 .audience__card--featured {
-  background: var(--green-dark);
-  color: #fff;
-  border-color: var(--green-dark);
-}
-
-.audience__card--featured h3,
-.audience__card--featured p,
-.audience__card--featured li {
-  color: #fff;
+  background: var(--offwhite);
+  border-color: transparent;
 }
 
 .audience__icon {
@@ -290,7 +283,7 @@ ul { list-style: none; }
 }
 
 .audience__card--featured .audience__list li {
-  color: rgba(255,255,255,0.9);
+  color: #4a5e4a;
 }
 
 .audience__list li::before {
@@ -302,7 +295,7 @@ ul { list-style: none; }
 }
 
 .audience__card--featured .audience__list li::before {
-  color: #a8e6a8;
+  color: var(--green-mid);
 }
 
 @media (max-width: 640px) {
