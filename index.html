@@ -142,6 +142,42 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </section>
 
+    <!-- ========== TARGET AUDIENCE ========== -->
+    <section class="audience" id="audience">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Untuk Siapa?</span>
+          <h2>Dirancang untuk Kamu yang Serius</h2>
+          <p>Natty Bites hadir untuk dua tipe orang yang punya satu kesamaan: mereka tidak punya waktu untuk kompromi soal nutrisi.</p>
+        </div>
+        <div class="audience__grid">
+
+          <div class="audience__card">
+            <div class="audience__icon" aria-hidden="true">🏋️</div>
+            <h3>Athletes &amp; Gym Goers</h3>
+            <p>Kamu latihan keras — makananmu harus sekeras itu juga. Kami sediakan makro presisi, protein tinggi, dan kalori yang mendukung performa puncakmu.</p>
+            <ul class="audience__list">
+              <li>Protein 100–160g per hari sesuai paket</li>
+              <li>Kalori dihitung untuk muscle gain atau fat loss</li>
+              <li>Recovery optimal pasca latihan</li>
+            </ul>
+          </div>
+
+          <div class="audience__card audience__card--featured">
+            <div class="audience__icon" aria-hidden="true">💼</div>
+            <h3>Busy Professionals</h3>
+            <p>Kamu tidak punya waktu untuk meal prep — tapi kamu tahu pentingnya makan bener. Kami urus semuanya, kamu tinggal fokus kerja dan raih target tubuhmu.</p>
+            <ul class="audience__list">
+              <li>Zero persiapan, tinggal terima &amp; makan</li>
+              <li>Bebas ongkir ke lokasi kerjamu</li>
+              <li>Makro tercatat, diet tetap on-track</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
     <!-- ========== VALUE PROPOSITION ========== -->
     <section class="value" id="value">
       <div class="container">
@@ -191,22 +227,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <span class="value__card-cta">Lihat →</span>
           </button>
 
-          <!-- Card 5: Guarantee -->
-          <button class="value__card" data-modal="modal-guarantee" aria-haspopup="dialog">
+          <!-- Card 5: Macro Transparency -->
+          <button class="value__card" data-modal="modal-macro" aria-haspopup="dialog">
             <div class="value__card-icon" aria-hidden="true">
               <img src="Guarantee icon.png" alt="" />
             </div>
-            <h3>Garansi Kami</h3>
+            <h3>Makro Transparan</h3>
             <p>Tap untuk lihat selengkapnya</p>
             <span class="value__card-cta">Lihat →</span>
           </button>
 
-          <!-- Card 6: Halal -->
-          <button class="value__card" data-modal="modal-halal" aria-haspopup="dialog">
+          <!-- Card 6: Calorie Tracking -->
+          <button class="value__card" data-modal="modal-calories" aria-haspopup="dialog">
             <div class="value__card-icon" aria-hidden="true">
               <img src="Halal &amp; Hygiene icon.png" alt="" />
             </div>
-            <h3>Halal &amp; Kebersihan Mutlak</h3>
+            <h3>Hitungan Kalori Presisi</h3>
             <p>Tap untuk lihat selengkapnya</p>
             <span class="value__card-cta">Lihat →</span>
           </button>
@@ -288,37 +324,37 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </div>
 
-    <div class="popup-overlay" id="modal-guarantee" role="dialog" aria-modal="true" aria-labelledby="modal-guarantee-title" aria-hidden="true">
+    <div class="popup-overlay" id="modal-macro" role="dialog" aria-modal="true" aria-labelledby="modal-macro-title" aria-hidden="true">
       <div class="popup popup--value">
         <button class="popup__x-close" aria-label="Tutup">&times;</button>
         <div class="popup__value-icon" aria-hidden="true">
           <img src="Guarantee icon.png" alt="" />
         </div>
-        <h2 class="popup__title" id="modal-guarantee-title">Garansi Kami</h2>
-        <p class="popup__value-subtitle">Kami Serius Soal Kualitas dan Hasilmu</p>
-        <p class="popup__value-desc">Kami tidak hanya menjual makanan — kami berkomitmen pada hasil nyata dan kualitas yang bisa kamu andalkan setiap hari:</p>
+        <h2 class="popup__title" id="modal-macro-title">Makro Transparan</h2>
+        <p class="popup__value-subtitle">Kamu Tahu Persis Apa yang Kamu Makan</p>
+        <p class="popup__value-desc">Kami percaya transparansi adalah kunci. Setiap menu Natty Bites dilengkapi informasi makro yang jelas dan akurat:</p>
         <ul class="popup__value-list">
-          <li><strong>100% Segar:</strong> Selalu dimasak fresh di hari yang sama, bukan makanan beku.</li>
-          <li><strong>Target Tercapai:</strong> Komitmen penuh membantu Anda mencapai body goals.</li>
-          <li><strong>Refund 30%:</strong> Garansi uang kembali sebagai jaminan kualitas layanan kami.</li>
+          <li><strong>Protein:</strong> Jumlah gram protein per sajian tertera jelas di setiap menu.</li>
+          <li><strong>Karbohidrat &amp; Lemak:</strong> Rincian lengkap untuk setiap komponen makro.</li>
+          <li><strong>Tidak Ada yang Disembunyikan:</strong> Label nutrisi transparan, tanpa estimasi kasar.</li>
         </ul>
         <button class="btn btn--primary popup__close">Mengerti</button>
       </div>
     </div>
 
-    <div class="popup-overlay" id="modal-halal" role="dialog" aria-modal="true" aria-labelledby="modal-halal-title" aria-hidden="true">
+    <div class="popup-overlay" id="modal-calories" role="dialog" aria-modal="true" aria-labelledby="modal-calories-title" aria-hidden="true">
       <div class="popup popup--value">
         <button class="popup__x-close" aria-label="Tutup">&times;</button>
         <div class="popup__value-icon" aria-hidden="true">
           <img src="Halal &amp; Hygiene icon.png" alt="" />
         </div>
-        <h2 class="popup__title" id="modal-halal-title">Halal &amp; Kebersihan Mutlak</h2>
-        <p class="popup__value-subtitle">Standar Tertinggi dari Dapur hingga Meja Makanmu</p>
-        <p class="popup__value-desc">Setiap menu yang kami sajikan diproses dengan standar halal dan higienitas yang tidak pernah kami kompromikan:</p>
+        <h2 class="popup__title" id="modal-calories-title">Hitungan Kalori Presisi</h2>
+        <p class="popup__value-subtitle">Kalori Dihitung, Bukan Ditebak</p>
+        <p class="popup__value-desc">Setiap porsi Natty Bites dirancang dengan target kalori yang presisi sesuai paket dan goal tubuhmu:</p>
         <ul class="popup__value-list">
-          <li><strong>100% Halal:</strong> Seluruh bahan baku tersertifikasi halal.</li>
-          <li><strong>Dapur Standar Tinggi:</strong> Higienitas ketat sesuai standar keamanan pangan.</li>
-          <li><strong>Quality Control:</strong> Pengawasan super ketat dari dapur hingga ke tangan Anda.</li>
+          <li><strong>Kalori Terukur:</strong> Setiap menu dihitung berdasarkan berat aktual bahan masak.</li>
+          <li><strong>Disesuaikan Target:</strong> Deficit untuk fat loss, surplus untuk muscle gain, maintenance untuk steady state.</li>
+          <li><strong>Tracking Mudah:</strong> Kamu tinggal makan — semua angka sudah disiapkan.</li>
         </ul>
         <button class="btn btn--primary popup__close">Mengerti</button>
       </div>
@@ -330,24 +366,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="section-header">
           <span class="section-label">Cara Pesan</span>
           <h2>Cara Memesan Meal Plan</h2>
-          <p>Lima langkah mudah dari konsultasi hingga makanan tiba di pintumu.</p>
+          <p>Lima langkah mudah dari pendaftaran hingga makanan tiba di pintumu.</p>
         </div>
         <div class="howto__grid">
 
           <!-- Step 1 -->
           <article class="howto__card">
             <span class="howto__step-badge">Step 1</span>
-            <h3 class="howto__title">Konsultasi Gratis</h3>
-            <p class="howto__desc">Bicara dengan ahli nutrisi kami tentang kondisi awalmu dan apa yang belum berhasil selama ini.</p>
+            <h3 class="howto__title">Daftarkan Dirimu</h3>
+            <p class="howto__desc">Isi form pendaftaran dan tim kami akan segera menghubungimu via Instagram untuk langkah selanjutnya.</p>
             <hr class="howto__divider" />
             <ul class="howto__checklist">
               <li>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                1-on-1 dengan ahli nutrisi
+                Proses cepat &amp; mudah
               </li>
               <li>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                Gratis, tanpa komitmen
+                Tanpa komitmen di awal
               </li>
             </ul>
           </article>
@@ -405,7 +441,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <article class="howto__card howto__card--hero">
             <span class="howto__step-badge howto__step-badge--hero">Step 5</span>
             <h3 class="howto__title howto__title--hero">Capai Targetmu,<br/>Dijamin.</h3>
-            <p class="howto__desc howto__desc--hero">Ikuti plan dan konsultasi sesuai arahan kami.</p>
+            <p class="howto__desc howto__desc--hero">Ikuti plan sesuai arahan kami.</p>
             <hr class="howto__divider howto__divider--hero" />
             <ul class="howto__checklist howto__checklist--hero">
               <li>
@@ -460,7 +496,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <li>Makanan tinggi serat</li>
                 <li>Porsi terkontrol & mengenyangkan</li>
                 <li>Bahan makanan nyata</li>
-                <li>Pengiriman sudah termasuk</li>
+                <li>Bebas ongkir</li>
               </ul>
               <p class="pkg__suitable">Cocok untuk penurunan berat badan, profesional sibuk, pemula.</p>
               <a href="#home" class="btn pkg__btn pkg__btn--lean">Pilih Lean &amp; Light</a>
@@ -499,7 +535,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <li>Karbohidrat fokus performa</li>
                 <li>Bahan premium pilihan</li>
                 <li>Dukungan recovery &amp; pertumbuhan otot</li>
-                <li>Pengiriman sudah termasuk</li>
+                <li>Bebas ongkir</li>
               </ul>
               <p class="pkg__suitable">Cocok untuk atlet, binaragawan, latihan beban.</p>
               <a href="#home" class="btn pkg__btn pkg__btn--bulk">Pilih Bulk Fuel</a>
@@ -537,7 +573,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <li>Makro seimbang</li>
                 <li>Energi konsisten sepanjang hari</li>
                 <li>Tanpa diet ekstrem</li>
-                <li>Pengiriman sudah termasuk</li>
+                <li>Bebas ongkir</li>
               </ul>
               <p class="pkg__suitable">Cocok untuk menjaga berat badan, keluarga, orang aktif.</p>
               <a href="#home" class="btn pkg__btn pkg__btn--steady">Pilih Steady State</a>
